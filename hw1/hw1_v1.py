@@ -37,11 +37,13 @@ for i in range(12):         #一年有12個月
         for k in range(18):    #18個測項 
             for m in range(9): #前九個小時的每個測項當作feagure
                 #[x] = [ [f11, f12, ..., f1n, f21, f22, ..], .. ]; k代表第K個測項; fi(第i個測項),j(第j個小時)
-                x[i*471+j].append(data[k][i*24*20+j+m])
+                x[-1].append(data[k][i*24*20+j+m])
         y.append(data[9][i*24*20+j+9])
 
 x = np.array(x)
 y = np.array(y)
+print(x.shape)
+input()
 
 
 #這邊記得加入bias，把原本x矩陣最左邊再加入一行
@@ -53,7 +55,7 @@ w = np.zeros(1+162)   #w = weight, total 18(測項)*9(9小時當作一組feature
 x_t = x.transpose()   
 s_grad = np.zeros(len(x[0]))    #np.zeros() is different to the matlab, = [0, 0, 0, ...]一維向量 162*1
 l_rate = 0.1     #learning rate
-iterations = 30000      #迭代次數, 可視為調整w(weight)的次數
+iterations = 10000      #迭代次數, 可視為調整w(weight)的次數
 
 for i in range(iterations):
     t_y = np.dot(x, w)
@@ -69,6 +71,7 @@ for i in range(iterations):
     
 np.save('model.npy', w)     #  ,w : 把w存進去
 w = np.load('model.npy')
+print(w)
 
 test_x = []
     
