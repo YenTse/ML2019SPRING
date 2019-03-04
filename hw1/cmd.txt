@@ -1,1 +1,0 @@
-python3 hw1_v3.py train.csv test.csv predict3.csv
