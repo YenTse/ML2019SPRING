@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-
-
 @author: xieyanduo
+kaggle score : 
 """
 import csv
 import numpy as np
@@ -160,13 +159,22 @@ def Validation(x, y):
 
 if __name__ == '__main__':
 
-    data, mean_data, var_data = ReadTrainData('train.csv')
+    data, mean_data, var_data = ReadTrainData('../myData/train.csv')
     print('data shape:'+str(data.shape))
-    featureList = [0, 0, 0, 0, 0, 1, 1, 1, 3, 3, 1, 0, 0, 0, 1, 1, 1, 1]
-    #featureList = [0, 0, 1, 0, 0, 1, 0, 1, 3, 3, 1, 0, 1, 0, 0, 0, 0, 0]
+    featureList = [0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 1, 0, 0, 0, 1, 1, 1, 1]
     #featureList = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    #featureList = [0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0]
-    #featureList = [4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4]
+    #featureList = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    #write related parameters into a file
+    filename = 'init_parameters4best.csv'   
+    with open(filename, 'w+') as text:
+        o = csv.writer(text, delimiter = ',', lineterminator = '\n')
+        o.writerow(mean_data)
+        o.writerow(var_data)
+        o.writerow(featureList)
+    print(filename+' is saved!')
+
+
     x, y = GetTrainPairs(data, featureList)
     print(len(x), len(x[0]))
     #print(len(y))
@@ -190,32 +198,18 @@ if __name__ == '__main__':
         print('validation loss='+str(total_loss/2))
         #input()
     '''
-    #mini_x, mini_y = GetBatch(x, y, 12)
-    n = 1
-    mini_x = x[:-n]
-    mini_y = y[:-n]
 
-    inv_XX = inv( np.dot(mini_x.T, mini_x) )
-    yy = np.dot(inv_XX, mini_x.T)
-    w = np.dot(yy, mini_y)
-
-    test_x = x[-n:]
-    test_y = y[-n:]
-    y_pred = np.dot(test_x, w)
-    loss = (y_pred - test_y)*var_data[9]
-    loss = np.sqrt(np.sum(loss ** 2)/len(test_y))
-    print('feature list:'+str(featureList))
-    print('val loss:'+str(loss))
-
+    inv_XX = inv( np.dot(x.T, x) )
+    yy = np.dot(inv_XX, x.T)
+    w = np.dot(yy, y)
 
 
     print('x, y shape: '+str(x.shape)+str(y.shape))
     print('w shape:'+str(w.shape))
-    np.save('model.npy', w)
-    #print(w)
-
+    np.save('best_model.npy', w)
+    print(w)
    
-    test_data = ReadTestData('test.csv')
+    test_data = ReadTestData('../myData/test.csv')
     for x, row in enumerate(test_data):  #Normalize testing data
         for y, i in enumerate(row):
             test_data[x][y] = (test_data[x][y] - mean_data[x])/var_data[x]
@@ -235,13 +229,15 @@ if __name__ == '__main__':
        a = a * var_data[9] + mean_data[9]
        ans[i].append(a)
     
-    filename = 'predict_ClosedForm.csv'   
+    '''
+    filename = 'predict_CloseForm.csv'   
     with open(filename, 'w+') as text:
         o = csv.writer(text, delimiter = ',', lineterminator = '\n')
         o.writerow(['id', 'value'])
         for row in ans:
             o.writerow(row)
     print(filename+' saved!')
+    '''
     
 
 
