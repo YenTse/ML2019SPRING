@@ -161,7 +161,7 @@ if __name__ == '__main__':
 
     data, mean_data, var_data = ReadTrainData('../myData/train.csv')
     print('data shape:'+str(data.shape))
-    featureList = [0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 1, 0, 0, 0, 1, 1, 1, 1]
+    featureList = [0, 0, 0, 0, 0, 1, 1, 1, 3, 3, 1, 0, 0, 0, 1, 1, 1, 1]
     #featureList = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     #featureList = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
 
