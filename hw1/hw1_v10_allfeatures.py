@@ -70,7 +70,7 @@ def GetTrainPairs(data, featureList):
         for j in range(471):        #一個月有471筆資料, ex:[1~10, 2~11, ..., 471~480]
             x.append([])        # [x]:5652( 12*471 ) * N depends on featureList
             for k in range(18):    #18個測項 
-                    for h in range(5): #前九個小時的每個測項當作feagure
+                    for h in range(9): #前九個小時的每個測項當作feagure
                         #[x] = [ [f11, f12, ..., f1n, f21, f22, ..], .. ]; k代表第K個測項; fi(第i個測項),j(第j個小時)
                         for f in range(featureList[k]):
                             temp *= data[k][i*24*20+j+h]
@@ -88,7 +88,7 @@ def GetTestPairs(data, featureList):
     for i in range(int(data.shape[1]/9)):
         x.append([])
         for j in range(18):
-            for h in range(5):
+            for h in range(9):
                 for f in range(featureList[j]):
                     temp *= data[j][i*9+h]
                     x[i].append(temp)
@@ -162,8 +162,8 @@ if __name__ == '__main__':
     data, mean_data, var_data = ReadTrainData('../myData/train.csv')
     print('data shape:'+str(data.shape))
     #featureList = [0, 0, 0, 0, 0, 1, 1, 1, 3, 3, 1, 0, 0, 0, 1, 1, 1, 1]
-    #featureList = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    featureList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+    featureList = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    #featureList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
 
     #write related parameters into a file
     filename = 'init_parameters.csv'   
@@ -199,7 +199,6 @@ if __name__ == '__main__':
         print('validation loss='+str(total_loss/2))
         #input()
         '''
-
 
     print('x, y shape: '+str(x.shape)+str(y.shape))
     print('w shape:'+str(w.shape))

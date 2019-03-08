@@ -44,7 +44,7 @@ def main(args):
     
     # initial parameters: mean_data, var_data, featureList
     _init = []
-    with open('init_parameters.csv', 'r', encoding = 'big5') as csvfile:
+    with open('init_parameters.csv', 'r', encoding = 'big5', newline='\n') as csvfile:
         text = csv.reader(csvfile, delimiter = ',')
         for n, row in enumerate(text):
             _init.append([])
