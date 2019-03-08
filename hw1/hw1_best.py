@@ -11,7 +11,7 @@ def ReadTestData(filename):
     for i in range(18):
         test_data.append([])
 
-    with open(filename, 'r', encoding = 'big5') as csvfile:
+    with open(filename, 'r', encoding = 'big5', newline='\n') as csvfile:
         text = csv.reader(csvfile, delimiter = ',')
         for n, row in enumerate(text):
             for j in range(2, 11):
@@ -44,7 +44,7 @@ def main(args):
     
     # initial parameters: mean_data, var_data, featureList
     _init = []
-    with open('init_parameters4best.csv', 'r', encoding = 'big5') as csvfile:
+    with open('init_parameters4best.csv', 'r', encoding = 'big5', newline='\n') as csvfile:
         text = csv.reader(csvfile, delimiter = ',')
         for n, row in enumerate(text):
             _init.append([])
