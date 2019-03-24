@@ -1,0 +1,9 @@
+
+# best model gradient boosting
+bash hw2_best.sh ../myData/hw2/train.csv ../myData/hw2/test.csv ../myData/hw2/X_train ../myData/hw2/Y_train ../myData/hw2/X_test ../results/hw2/predict_gredBoost_300_kaggle_best.csv
+
+#logistic regression model
+bash hw2_logistic.sh ../myData/hw2/train.csv ../myData/hw2/test.csv ../myData/hw2/X_train ../myData/hw2/Y_train ../myData/hw2/X_test ../results/hw2/predict_logistic.csv
+
+# generative model
+bash hw2_generative.sh ../myData/hw2/train.csv ../myData/hw2/test.csv ../myData/hw2/X_train ../myData/hw2/Y_train ../myData/hw2/X_test ../results/hw2/predict_generative.csv
