@@ -151,7 +151,7 @@ def main() :
         SaveModel_name = 'model_'+str(i)+'.h5'
         model = CNN_Model()
         #model = fit(model , X_train , Y_train , epochs = 50 , val_split = 0.2)
-        model = fit(model, X_train, Y_train, epochs = 1, d_set=D_SET, remander_value=i, SaveModel_name=SaveModel_name)
+        model = fit(model, X_train, Y_train, epochs = 300, d_set=D_SET, remander_value=i, SaveModel_name=SaveModel_name)
 #         plt.clf()
 #         plt.plot(model.history.history['acc'])
 #         plt.plot(model.history.history['val_acc'])
@@ -166,7 +166,7 @@ def main() :
         print('Train accuracy:', score[1])
 
 if __name__ == "__main__":
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+    #os.environ["CUDA_VISIBLE_DEVICES"] = "0"
     main()
 
 
