@@ -19,9 +19,14 @@ import glob
 
 def prepare_dataset(data_path):
     x_train = []
+    img_dict = {}
     img_list = glob.glob(os.path.join(data_path, '*.jpg'))
 #     print(img_list)
-    for img_path in img_list:
+    for i, img_path in enumerate(img_list):
+        img_name = os.path.basename(img_path)
+        img_name = int(img_name[:-4])
+        img_dict[img_name] = i
+        
         img = imread(img_path)
         img = img.flatten().astype('float32') 
 #         print(img.shape)
@@ -30,7 +35,7 @@ def prepare_dataset(data_path):
         x_train.append(img)
     x_train = np.array(x_train)
     
-    return x_train
+    return x_train, img_dict
 
 
 # ## define PCA
@@ -106,15 +111,16 @@ class PCA():
 data_path = sys.argv[1]
 input_img = sys.argv[2]
 save_name = sys.argv[3]
-x_train = prepare_dataset(data_path)
+x_train, img_dict = prepare_dataset(data_path)
 # print(x_train.shape)  # x_train.shape = (415, 600, 600, 3)
+input_img = os.path.basename(input_img)
 input_img_id = int(input_img[:-4])
 
 # In[5]:
 
 
 pca = PCA()
-pca.Reconstruct(x_train, x_train[input_img_id], 5, isSave=1, save_name = save_name)
+pca.Reconstruct(x_train, x_train[img_dict[input_img_id]], 5, isSave=1, save_name = save_name)
 
 
 # pca.Mean_face(x_train, 'meanface.jpg', isSave=1)
