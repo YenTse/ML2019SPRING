@@ -13,7 +13,6 @@ from keras.models import Sequential
 from keras.utils import np_utils
 from keras import optimizers
 import keras.callbacks
-import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import load_data
