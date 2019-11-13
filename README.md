@@ -1,8 +1,8 @@
 # ML2019SPRING
-# Machine Learning (2019, Spring) 
-## Lecturer: Prof. Hung-yi Lee
+## Machine Learning (2019, Spring) 
+### Lecturer: Prof. Hung-yi Lee
 
-For more details, please check the course website [Link](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML19.html)
+### For more details, please check the course website [Link](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML19.html)
 
 ### 1. HW1 - PM2.5 Prediction  
     - [introduction] (https://ntumlta2019.github.io/ml-web-hw1/)
