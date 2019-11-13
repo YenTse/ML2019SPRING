@@ -1,6 +1,6 @@
 # Machine Learning (2019, Spring) 
-###### tags: `ML2019SPRING`
 ### Lecturer: Prof. Hung-yi Lee
+###### tags: `ML2019SPRING`
 
 #### For more details, please check the course website [Link](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML19.html)
 
@@ -18,11 +18,11 @@
 
 ### 4. HW4 - Explain your model  
     - [introduction](https://ntumlta2019.github.io/ml-web-hw4/)
-    - Kaggle : no kaggle   
+    - [Kaggle] : no kaggle   
     
 ### 5. HW5 - Adversarial Attack
     - [introduction](http://140.112.42.213:22224/)
-    - Kaggle : TA's website
+    - [Kaggle] : TA's website
 
 ### 6. HW6 - Malicious Comments Identification
     - [introduction](https://ntumlta2019.github.io/ml-web-hw6/)
