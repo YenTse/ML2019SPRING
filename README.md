@@ -21,7 +21,7 @@
     - [Kaggle] : no kaggle   
     
 ### 5. HW5 - Adversarial Attack
-    - [introduction](http://140.112.42.213:22224/)
+    - [introduction](https://docs.google.com/presentation/d/1RdBdCspgjXMnH3qzTS_m4RoQ0sT67VXoT-Oj7MERopA/edit?fbclid=IwAR024lWQR2luTuY5UPBAIlaU-ybk9YjqIIPdfVb_x9w95JxgvQwj9brOIk8#slide=id.g4d2b1fc22a_0_0)
     - [Kaggle] : TA's website
 
 ### 6. HW6 - Malicious Comments Identification
